@@ -6,11 +6,11 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public Rigidbody theRB;
 
-    public float forwardAccel = 8f, reverseAccel =4f, maxSpeed = 50f, turnStrengh = 180;
+    public float forwardAccel = 0f, reverseAccel =0f, maxSpeed = 0f, turnStrengh = 180;
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         
     }
 
