@@ -6,23 +6,23 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public Rigidbody theRB;
 
-    public float forwardAccel = 8f, reverseAccel =4f, maxSpeed = 50f, turnStrengh = 180;
+    public float forwardAccel, reverseAccel, maxSpeed, turnStrengh;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+            if(Input.GetKey(KeyCode.W)) {
+            Debug.Log("Forward test");
+            transform.position += new Vector3 (1, 2, 3);
+        }
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        transform.position = theRB.transform.position;
+    private void Update() {
     }
 
     private void FixedUpdate()
     {
-        theRB.AddForce(transform.forward * forwardAccel);
+        //theRB.AddForce(transform.forward * forwardAccel);
     }
 
 }
