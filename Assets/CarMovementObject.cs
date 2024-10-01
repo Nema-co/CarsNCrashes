@@ -31,11 +31,12 @@ public class CarMovementObject : MonoBehaviour
          speedInput = 0f;
          if (Input.GetAxis("Vertical") > 0)
          {
-            speedInput = Input.GetAxis("Vertical") * forward * 300f;
+            speedInput = Input.GetAxis("Vertical") * forward * 100f;
          }
-         else if (Input.GetAxis("Vertical") < 0)
+
+         if (Input.GetAxis("Vertical") < 0)
          {
-            speedInput = Input.GetAxis("Vertical") * backward * 300f;
+            speedInput = Input.GetAxis("Vertical") * backward * 100f;
          }
 
 
@@ -61,12 +62,12 @@ public class CarMovementObject : MonoBehaviour
             if (Mathf.Abs(speedInput) > 0)
             {
                 rb.AddForce(transform.forward * speedInput);
-                Debug.Log("Dan Test Gravity! Speed input");
+                Debug.Log("Object is grounded.");
             }
         } else {
             {
                 rb.AddForce(Vector3.up * -gravityForce * 50f);
-                Debug.Log("Dan Test Gravity!");
+                Debug.Log("Is Not Grounded.");
                 float distance = Vector3.Distance(groundRayPoint.position, hit.point);
                 Debug.Log("Distance to ground: " + distance);
             }
