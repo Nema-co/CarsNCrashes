@@ -7,7 +7,7 @@ public class CarMovementObject : MonoBehaviour
    // private float speed = 25, reverse = 13;
     public Rigidbody rb;
 
-    private float forward = 8f, backward = 4, speed = 50, turnStrength = 180, gravityForce = 10f;
+    private float forward = 8f, backward = 4, turnStrength = 180, gravityForce = 10f;
     public float speedInput, turnInput;
     private bool grounded;
     public LayerMask whatIsGround;
@@ -15,16 +15,18 @@ public class CarMovementObject : MonoBehaviour
     public Transform groundRayPoint;
     public int PlayerNum;
     private float vertical;
-    
+
+
+
 
     // private Vector3 defaultPosition = new Vector3(237.48f, 42, 17); //Default spawn location variable
 
 
     // Start is called before the first frame update
     void Start() {
-        //transform.position = defaultPosition; //Sets default span location once scene has started
-        rb.transform.parent = null;
 
+        rb.transform.parent = null; //Will need to remove this logic at some point but remain for now.
+         
     }
 
     // Update is called once per frame
@@ -34,8 +36,7 @@ public class CarMovementObject : MonoBehaviour
         {
             vertical = Input.GetAxis("Vertical1");
             turnInput = Input.GetAxis("Horizontal1");
-        } else if (PlayerNum == 2)
-        {
+        } else if (PlayerNum == 2) {
             vertical = Input.GetAxis("Vertical2");
             turnInput = Input.GetAxis("Horizontal2");
         }
@@ -47,7 +48,7 @@ public class CarMovementObject : MonoBehaviour
             speedInput = vertical * forward * 100f;
             
         } else if (vertical < 0)
-         {
+        {
             speedInput = vertical * backward * 100f;
         }
 
@@ -70,16 +71,16 @@ public class CarMovementObject : MonoBehaviour
         }
 
         if (grounded) {
-            Debug.Log("Player is grounded.");
+            //Debug.Log("Player is grounded.");
             if (Mathf.Abs(speedInput) > 0)
             {
                 rb.AddForce(transform.forward * speedInput);
-                Debug.Log("Object is grounded.");
+               // Debug.Log("Object is grounded.");
             }
         } else {
             {
                 rb.AddForce(Vector3.up * -gravityForce * 50f);
-                Debug.Log("Is Not Grounded.");
+                //Debug.Log("Is Not Grounded.");
                 float distance = Vector3.Distance(groundRayPoint.position, hit.point);
                 if(distance > 300 && !grounded)
                 {
