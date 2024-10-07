@@ -7,10 +7,10 @@ public class GlobalVariables : MonoBehaviour
     public int FinalCheckPointReached = 0;
     public void PlayerFinished(int CheckPoint)
     {
-        FinalCheckPointReached = CheckPoint;
-    #if UNITY_EDITOR
+        FinalCheckPointReached = 1;
+
+        //Used for when editor is active can switch this off whenever you need by commenting it out
         UnityEditor.EditorApplication.isPlaying = false;
-    #endif
-        Debug.Log("Game finished " + FinalCheckPointReached);
+        Debug.Log("Game finished!!!!");
     }
 }
