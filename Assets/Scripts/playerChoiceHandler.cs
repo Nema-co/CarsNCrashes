@@ -48,8 +48,11 @@ public class playerChoiceHandler : MonoBehaviour
         GlobalVariables.PlayerCount = num;
         if(num == 1)
         {
-            GlobalVariables.OnlyOnePlayer = true;
+            //GlobalVariables.OnlyOnePlayer = true;
             GlobalVariables.isSplitScreen = false;
+        } else
+        {
+            GlobalVariables.isSplitScreen = true;
         }
         MainMenuScript.onMapLoading();
         //SceneManager.LoadScene("Map1Scene");

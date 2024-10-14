@@ -13,8 +13,8 @@ public class CameraSelection : MonoBehaviour
     {
         GameObject[] playerCameras = GameObject.FindGameObjectsWithTag("PlayerCamera");
         GameObject[] mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
-        Debug.Log("Is one player: " + GlobalVariables.OnlyOnePlayer);
-        if (GlobalVariables.OnlyOnePlayer == true)
+        
+        if (GlobalVariables.isSplitScreen == false) //Means it'll use main camera only
         {
             int MainCameraEnabled = mainCamera.Length;
 

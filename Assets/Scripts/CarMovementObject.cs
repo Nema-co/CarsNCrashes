@@ -41,12 +41,12 @@ public class CarMovementObject : MonoBehaviour
         {
             if (GlobalVariables.isSplitScreen == true)
             {
-                if (PlayerNum == 1 && PlayerCount >= 1)
+                if (PlayerNum == 1)
                 {
                     vertical = Input.GetAxis("Vertical1");
                     turnInput = Input.GetAxis("Horizontal1");
                 }
-                else if (PlayerNum == 2 && PlayerCount >= 2)
+                else if (PlayerNum == 2)
                 {
                     vertical = Input.GetAxis("Vertical2");
                     turnInput = Input.GetAxis("Horizontal2");

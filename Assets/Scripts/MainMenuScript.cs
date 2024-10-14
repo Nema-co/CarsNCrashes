@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -66,7 +67,8 @@ public class MainMenuScript : MonoBehaviour
         GlobalVariables.PlayerCount = num;
         if (num == 1)
         {
-            GlobalVariables.OnlyOnePlayer = true; //Needs to be put into a reuseable method ideally as used in two places
+            //GlobalVariables.OnlyOnePlayer = true; //Needs to be put into a reuseable method ideally as used in two places
+            GlobalVariables.isSplitScreen = false;
         }
         onMapLoading();
     }
