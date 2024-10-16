@@ -5,67 +5,41 @@ using UnityEngine;
 public class GameCheckPoints : MonoBehaviour
 {
 
-    private static int CheckPoint = 0;
-    public int CheckPointNumber = 0; //Set in unity front end per object! Don't change
+    //private static int CheckPoint = 0;
+    public int CheckPointNumber = 0; //Set in unity front end per object! Don't change unless you got a better way
     private int MissedCheckPoint;
-    private int MaxCheckPoints = 8;
+    public int FinalCheckPoint = 0;
+    private float percentage = 0.1f;
+    private int latestAvailableGamePosition = 0;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag.Contains("Player")) // Ensure the player has the "Player" tag
-        {
-           if (CheckPointNumber == 1 && CheckPoint == 0)
-            {
-                CheckPoint = 1; // Increment the counter
-                Debug.Log("Checkpoint reached! Total checkpoints: " + CheckPoint);
-            }
-            else if (CheckPointNumber == 2 && CheckPoint == 1)
-            {
-                CheckPoint = 2; // Increment the counter
-                Debug.Log("Checkpoint reached! Total checkpoints: " + CheckPoint);
-            }
-            else if (CheckPointNumber == 3 && CheckPoint == 2)
-            {
-                CheckPoint = 3; // Increment the counter
-                Debug.Log("Checkpoint reached! Total checkpoints: " + CheckPoint);
-            }
-            else if (CheckPointNumber == 4 && CheckPoint == 3)
-            {
-                CheckPoint = 4; // Increment the counter
-                Debug.Log("Checkpoint reached! Total checkpoints: " + CheckPoint);
-            }
-            else if (CheckPointNumber == 5 && CheckPoint == 4)
-            {
-                CheckPoint = 5; // Increment the counter
-                Debug.Log("Checkpoint reached! Total checkpoints: " + CheckPoint);
-            }
-            else if (CheckPointNumber == 6 && CheckPoint == 5)
-            {
-                CheckPoint = 6; // Increment the counter
-                Debug.Log("Checkpoint reached! Total checkpoints: " + CheckPoint);
-            }
-            else if (CheckPointNumber == 7 && CheckPoint == 6)
-            {
-                CheckPoint = 7; // Increment the counter
-                Debug.Log("Checkpoint reached! Total checkpoints: " + CheckPoint);
-            }
-            else if (CheckPointNumber == 8 && CheckPoint == 7)
-            {
-                CheckPoint = 8; // Increment the counter
-                Debug.Log("Checkpoint reached! Total checkpoints: " + CheckPoint);
-                UnityEditor.EditorApplication.isPlaying = false;
-                Debug.Log("Game finished!!!!");
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag.Contains("Player")) { // Ensure the player has the "Player" tag 
+            playerProgressScript carProgress = other.GetComponent<playerProgressScript>();
+            if(carProgress != null) {
+                carProgress.PlayerProgress();
+                carProgress.checkPointStatus(1);
+                if (FinalCheckPoint == 1) {
+                 latestAvailableGamePosition++;
 
-            } else if (CheckPoint < 8)
-            {
-                MissedCheckPoint = CheckPoint + 1;
-                Debug.Log("You've missed or gone through another check point. Please go to checkpoint " + MissedCheckPoint);
+                    if (latestAvailableGamePosition == 1) {
+                        carProgress.finishedPosition(1);
+
+                    } else if (latestAvailableGamePosition == 2) {
+                        carProgress.finishedPosition(2);
+
+                    } else if (latestAvailableGamePosition == 3) {
+                        carProgress.finishedPosition(3);
+
+                    } else {
+                        carProgress.finishedPosition(latestAvailableGamePosition);
+                    }
+                int CheckPoint = carProgress.checkPointStatusCheck();
+                if (CheckPoint >= GlobalVariables.MaxCheckPointCount && latestAvailableGamePosition > GlobalVariables.MaxPlayerCount * percentage) {
+                        //Here is what shall run when this reaches the end. I will set a timer on gamer manager at some point.
+                        GameManagerScript.playerWinsGame();
+                    }
+                }
             }
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

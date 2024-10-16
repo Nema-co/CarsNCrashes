@@ -9,7 +9,7 @@ public class CameraSelection : MonoBehaviour
     // Start is called before the first frame upda
     private Camera playerCam, mainCam;
     private GameObject mainCameraObj;
-    void Start()
+    void Awake()
     {
         GameObject[] playerCameras = GameObject.FindGameObjectsWithTag("PlayerCamera");
         GameObject[] mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");

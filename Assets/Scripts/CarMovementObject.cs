@@ -1,11 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 public class CarMovementObject : MonoBehaviour
 {
    // private float speed = 25, reverse = 13;
     public Rigidbody rb;
 
-    public float forward = 8f, backward = 4f, turnStrength = 180, gravityForce = 10f, dragOnGround = 3f;
+    public float forward = 10f, backward = 4f, turnStrength = 180, gravityForce = 10f, dragOnGround = 3f;
     public float speedInput, turnInput = 0;
     private bool grounded;
     public LayerMask whatIsGround;
@@ -13,25 +13,13 @@ public class CarMovementObject : MonoBehaviour
     public Transform groundRayPoint;
     private float vertical;
     public Transform leftWheel, rightWheel, leftWheelRear, rightWheelRear;
-    private float MaxTurnSpeed = 35.0f;
     private float MaxTurn = 35;
     public int PlayerNum;
-    public static int PlayerCount;
-  
+
+
 
     // Start is called before the first frame update
     void Start() {
-
-        PlayerCount = GlobalVariables.PlayerCount;
-        if (PlayerCount == 0) 
-        {
-            Debug.LogError("MaxPlayer count is zero. Will first send you back to main menu. (Will most likely only be in test phase)");
-            SceneManager.LoadScene("MainMenu");
-        }
-        else
-        {
-            Debug.Log("Max player count: " + PlayerCount);
-        }
         rb.transform.parent = null; //Will need to remove this logic at some point but remain for now.
     }
 

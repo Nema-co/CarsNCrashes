@@ -10,6 +10,7 @@ public class playerChoiceHandler : MonoBehaviour
     private GameObject OnePlayer_Obj, TwoPlayer_Obj, ThreePlayer_Obj, FourPlayer_Obj;
     private Button OnePlayer_Button, TwoPlayer_Button, ThreePlayer_Button, FourPlayer_Button;
     private TMP_Text OnePlayer_Text, TwoPlayer_Text, ThreePlayer_Text, FourPlayer_Text;
+    private GameObject[] CheckPoints;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +56,6 @@ public class playerChoiceHandler : MonoBehaviour
             GlobalVariables.isSplitScreen = true;
         }
         MainMenuScript.onMapLoading();
-        //SceneManager.LoadScene("Map1Scene");
-
+        //SceneManager.LoadScene("Map1Scene
     }
 }
