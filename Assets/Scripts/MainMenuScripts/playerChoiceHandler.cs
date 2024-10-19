@@ -31,31 +31,13 @@ public class playerChoiceHandler : MonoBehaviour
         ThreePlayer_Text.text = "Three Player";
 
 
-        OnePlayer_Button.onClick.AddListener(() => OnButtonClick(1));
-        TwoPlayer_Button.onClick.AddListener(() => OnButtonClick(2));
-        ThreePlayer_Button.onClick.AddListener(() => OnButtonClick(3));
-
-
+        OnePlayer_Button.onClick.AddListener(() => SceneManagerScript.OnSelectMoveToGameScene(1));
+        TwoPlayer_Button.onClick.AddListener(() => SceneManagerScript.OnSelectMoveToGameScene(2));
+        ThreePlayer_Button.onClick.AddListener(() => SceneManagerScript.OnSelectMoveToGameScene(3));
 
         OnePlayer_Text.color = Color.white;
         TwoPlayer_Text.color = Color.white;
         ThreePlayer_Text.color = Color.white;
 
-    }
-
-    // Update is called once per frame
-     public void OnButtonClick(int num)
-     {
-        GlobalVariables.PlayerCount = num;
-        if(num == 1)
-        {
-            //GlobalVariables.OnlyOnePlayer = true;
-            GlobalVariables.isSplitScreen = false;
-        } else
-        {
-            GlobalVariables.isSplitScreen = true;
-        }
-        MainMenuScript.onMapLoading();
-        //SceneManager.LoadScene("Map1Scene
     }
 }

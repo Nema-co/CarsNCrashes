@@ -55,22 +55,11 @@ public class MainMenuScript : MonoBehaviour
         playerChoicePopUp.SetActive(false);
 
         //Button click elements
-        sPB.onClick.AddListener(() => onSinglePlayerButtonClick(1));
+        sPB.onClick.AddListener(() => SceneManagerScript.OnSelectMoveToGameScene(1));
         SplitScreenButton.onClick.AddListener(onSplitScreenButtonClick);
         MultiPlayerButton.onClick.AddListener(onMultiplayerButtonClick);
         OptionsButton.onClick.AddListener(onOptionsButtonClick);
         QuitGameButton.onClick.AddListener(onQuitButtonClick);
-    }
-
-    public void onSinglePlayerButtonClick(int num)
-    {
-        GlobalVariables.PlayerCount = num;
-        if (num == 1)
-        {
-            //GlobalVariables.OnlyOnePlayer = true; //Needs to be put into a reuseable method ideally as used in two places
-            GlobalVariables.isSplitScreen = false;
-        }
-        onMapLoading();
     }
 
     public void onSplitScreenButtonClick()
@@ -92,12 +81,5 @@ public class MainMenuScript : MonoBehaviour
     {
         QuitGameButton.interactable = false;
         Application.Quit();
-    }
-
-    public static void onMapLoading()
-    {
-        GlobalVariables.isGameReady = true;
-        SceneManager.LoadScene("Map1Scene");
-        
     }
 }

@@ -24,7 +24,8 @@ public class GameManagerScript : MonoBehaviour
             Test2 = Test[i].GetComponent<Collider>();
             playerProgressScript ScriptAttached = Test2.GetComponent<playerProgressScript>();
             if ((ScriptAttached == null)) {
-                ErrorPopUpMenuScript.ErrorPopUp("Player progress script not attached to a player collider object.", "ErrorPage");
+                GlobalVariables.ErrorMessage = "Player progress script not attached to a player collider object.";
+                SceneManagerScript.ErrorScene(GlobalVariables.ErrorMessage, GlobalVariables.ErrorPage);
             }
         }
     }
