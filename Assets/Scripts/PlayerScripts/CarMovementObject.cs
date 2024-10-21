@@ -5,7 +5,7 @@ public class CarMovementObject : MonoBehaviour
    // private float speed = 25, reverse = 13;
     public Rigidbody rb;
 
-    public float forward = 10f, backward = 4f, turnStrength = 180, gravityForce = 10f, dragOnGround = 3f;
+    private float forward = 25f, backward = 4f, turnStrength = 180, gravityForce = 10f, dragOnGround = 3f;
     public float speedInput, turnInput = 0;
     private bool grounded;
     public LayerMask whatIsGround;
@@ -27,37 +27,29 @@ public class CarMovementObject : MonoBehaviour
     void Update() {
         if (GlobalVariables.isGameReady == true)
         {
-            if (GlobalVariables.isSplitScreen == true)
-            {
-                if (PlayerNum == 1)
+            if(GlobalVariables.isGamePaused == false) { 
+                if (GlobalVariables.isSplitScreen == true)
                 {
-                    vertical = Input.GetAxis("Vertical1");
-                    turnInput = Input.GetAxis("Horizontal1");
-                }
-                else if (PlayerNum == 2)
-                {
-                    vertical = Input.GetAxis("Vertical2");
-                    turnInput = Input.GetAxis("Horizontal2");
-                }
-                else
-                {
-                    throw new System.Exception("No player number set, so no API inputs setup.");
-                }
-            }
-            else if (PlayerNum == 1)
-            {
+                    if (PlayerNum == 1) {
+                        vertical = Input.GetAxis("Vertical1");
+                        turnInput = Input.GetAxis("Horizontal1");
+                    } else if (PlayerNum == 2) {
+                            vertical = Input.GetAxis("Vertical2");
+                            turnInput = Input.GetAxis("Horizontal2");
+                        } else {
+                                throw new System.Exception("No player number set, so no API inputs setup.");
+                        }
+            } else if (PlayerNum == 1) {
                 vertical = Input.GetAxis("Vertical");
                 turnInput = Input.GetAxis("Horizontal");
             }
 
             speedInput = 0f;
-            if (vertical > 0)
-            {
+            if (vertical > 0) {
                 speedInput = vertical * forward * 100f;
 
             }
-            if (vertical < 0)
-            {
+            if (vertical < 0) {
                 speedInput = vertical * backward * 75f;
             }
 
@@ -70,8 +62,10 @@ public class CarMovementObject : MonoBehaviour
             leftWheel.localRotation = Quaternion.Euler(leftWheel.localRotation.eulerAngles.y, (turnInput * MaxTurn) - 180, leftWheel.localRotation.eulerAngles.z);
             rightWheel.localRotation = Quaternion.Euler(rightWheel.localRotation.eulerAngles.y, turnInput * MaxTurn, rightWheel.localRotation.eulerAngles.z);
             transform.position = rb.transform.position;
+            }
         } else
         {
+            SceneManagerScript.ExitBackToMainPage();
             Debug.Log("Game not ready will be taken back to main menu.");
         }
     }

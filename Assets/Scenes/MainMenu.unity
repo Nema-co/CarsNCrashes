@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 153467956}
   m_Layer: 0
   m_Name: SplitScreenButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -405,6 +405,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44f576d84f35d444a3b4a276ba9dbb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &352330532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 352330534}
+  - component: {fileID: 352330533}
+  m_Layer: 0
+  m_Name: ButtonStylerObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &352330533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352330532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca81d1f6c0556146b2b05c61d08f1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &352330534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352330532}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9508679, y: -42.342358, z: 494.89713}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &404159441
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,9 +595,10 @@ GameObject:
   - component: {fileID: 666684064}
   - component: {fileID: 666684063}
   - component: {fileID: 666684062}
+  - component: {fileID: 666684065}
   m_Layer: 0
   m_Name: 3Player
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -660,6 +705,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666684060}
   m_CullTransparentMesh: 1
+--- !u!114 &666684065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666684060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca81d1f6c0556146b2b05c61d08f1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &680119465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,7 +1225,7 @@ GameObject:
   - component: {fileID: 1132117219}
   m_Layer: 0
   m_Name: SinglePlayerButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1649,9 +1706,10 @@ GameObject:
   - component: {fileID: 1321669696}
   - component: {fileID: 1321669695}
   - component: {fileID: 1321669694}
+  - component: {fileID: 1321669697}
   m_Layer: 0
   m_Name: 2Player
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1758,6 +1816,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321669692}
   m_CullTransparentMesh: 1
+--- !u!114 &1321669697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321669692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca81d1f6c0556146b2b05c61d08f1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1443146283
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,7 +2112,7 @@ GameObject:
   - component: {fileID: 1557924071}
   m_Layer: 0
   m_Name: MultiPlayerButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2258,7 +2328,7 @@ GameObject:
   - component: {fileID: 1629514006}
   m_Layer: 0
   m_Name: QuitGameButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2447,7 +2517,7 @@ GameObject:
   - component: {fileID: 1658026015}
   m_Layer: 0
   m_Name: OptionsButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2774,9 +2844,10 @@ GameObject:
   - component: {fileID: 2085125947}
   - component: {fileID: 2085125946}
   - component: {fileID: 2085125945}
+  - component: {fileID: 2085125948}
   m_Layer: 0
   m_Name: 1Player
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2883,6 +2954,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085125943}
   m_CullTransparentMesh: 1
+--- !u!114 &2085125948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085125943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca81d1f6c0556146b2b05c61d08f1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2892,3 +2975,4 @@ SceneRoots:
   - {fileID: 1870454098}
   - {fileID: 1650309670}
   - {fileID: 26481787}
+  - {fileID: 352330534}

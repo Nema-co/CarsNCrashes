@@ -9,7 +9,10 @@ public static class GlobalVariables
     //public static bool OnlyOnePlayer { get; set; } 
     public static bool isSplitScreen { get; set; }
     public static bool isGameReady { get; set; }
+    public static bool isGamePaused = false;
     public static int MaxPlayerCount { get; set; }
+
+  
 
     public static int allPlayersFinalCheckPoint;
 

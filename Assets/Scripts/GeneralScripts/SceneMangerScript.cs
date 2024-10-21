@@ -18,7 +18,7 @@ public class SceneManagerScript : MonoBehaviour
         
     public static void OnSelectMoveToGameScene(int num) {
 
-        int RandomNum = Random.Range(1, 1);
+        int RandomNum = Random.Range(1, 3);
         if(num == 0) {
             ErrorScene("Player count is set to zero.", GlobalVariables.ErrorPage);
         } else if(num > 1) {
@@ -34,7 +34,7 @@ public class SceneManagerScript : MonoBehaviour
                 SceneSelected = "Map1Scene";
                 break;
             case 2:
-                Debug.Log("Scene 2");
+                SceneSelected = "Map2";
                 break;
             case 3:
                 Debug.Log("Scene 3");
@@ -80,7 +80,6 @@ public class SceneManagerScript : MonoBehaviour
 
          return OnSelectReloadScene("Map1Scene");
      }*/
-
 
 
     public static void ExitBackToMainPage()

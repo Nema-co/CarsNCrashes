@@ -43,13 +43,6 @@ public class MainMenuScript : MonoBehaviour
         OptionButtonText.text = "Options";
         QuitGameButtonText.text = "Quit Game";
 
-
-        singlePlayerButtonText.color = Color.white;
-        SplitScreenPlayerButtonText.color = Color.white;
-        MultiPlayerButtonText.color = Color.white;
-        OptionButtonText.color = Color.white;
-        QuitGameButtonText.color = Color.white;
-
         //Player choice popup!
         playerChoicePopUp = GameObject.Find("playerCountPopUp");
         playerChoicePopUp.SetActive(false);

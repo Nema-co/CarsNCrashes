@@ -1,5 +1,3 @@
-using System;
-using Unity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,8 +5,8 @@ public class GameManagerScript : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private GameObject[] Test;
-    private Collider Test2;
+    private GameObject[] playerObj;
+    private Collider playerCollider;
 
     //Original variables
     private GameObject Vehicle1, Vehicle2;
@@ -19,10 +17,10 @@ public class GameManagerScript : MonoBehaviour
     void Awake()
     {
 
-        Test = GameObject.FindGameObjectsWithTag("Player");
-        for(int i = 0; i < Test.Length; i++) {
-            Test2 = Test[i].GetComponent<Collider>();
-            playerProgressScript ScriptAttached = Test2.GetComponent<playerProgressScript>();
+        playerObj = GameObject.FindGameObjectsWithTag("Player");
+        for(int i = 0; i < playerObj.Length; i++) {
+            playerCollider = playerObj[i].GetComponent<Collider>();
+            playerProgressScript ScriptAttached = playerCollider.GetComponent<playerProgressScript>();
             if ((ScriptAttached == null)) {
                 GlobalVariables.ErrorMessage = "Player progress script not attached to a player collider object.";
                 SceneManagerScript.ErrorScene(GlobalVariables.ErrorMessage, GlobalVariables.ErrorPage);
@@ -50,16 +48,22 @@ public class GameManagerScript : MonoBehaviour
             if (GlobalVariables.isSplitScreen == false) {
                 /* We'll look to build a logic to cycle through all game objects named vechicle and when a user selects one it grabs that one and adds a default location
                  * but not now */
-                Vehicle2.SetActive(false); //Test for now
+                Vehicle2.SetActive(false); //Test for now 
             }
             else {
                 Vehicle1.SetActive(true);
                 Vehicle2.SetActive(true);
             }
           }
-
     }
 
+    private void Update() {
+        if (Input.GetKey(KeyCode.Escape) && !Input.GetKey(KeyCode.X)) { //Pauses game but does not unpause until I build UI and look at whether we want it a shortkey.
+            GlobalVariables.isGamePaused = true;
+        } else if(Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.X)) { //Will change another day
+            GlobalVariables.isGamePaused = false;
+        }
+    }
     public static void playerWinsGame()
     {
         Debug.Log("Game finished!!!!");
