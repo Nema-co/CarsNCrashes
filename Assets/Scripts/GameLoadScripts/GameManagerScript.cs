@@ -16,7 +16,6 @@ public class GameManagerScript : MonoBehaviour
 
     void Awake()
     {
-
         playerObj = GameObject.FindGameObjectsWithTag("Player");
         for(int i = 0; i < playerObj.Length; i++) {
             playerCollider = playerObj[i].GetComponent<Collider>();

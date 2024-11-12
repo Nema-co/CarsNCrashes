@@ -11,6 +11,7 @@ TagManager:
   - PlayerCamera
   - CheckPoint
   - Button
+  - MapButton
   layers:
   - Default
   - TransparentFX

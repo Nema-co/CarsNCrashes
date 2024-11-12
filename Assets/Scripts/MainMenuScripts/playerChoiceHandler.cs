@@ -7,14 +7,15 @@ using TMPro.Examples;
 public class playerChoiceHandler : MonoBehaviour
 {
 
-    private GameObject OnePlayer_Obj, TwoPlayer_Obj, ThreePlayer_Obj, FourPlayer_Obj;
+    /*private GameObject OnePlayer_Obj, TwoPlayer_Obj, ThreePlayer_Obj, FourPlayer_Obj;
     private Button OnePlayer_Button, TwoPlayer_Button, ThreePlayer_Button, FourPlayer_Button;
     private TMP_Text OnePlayer_Text, TwoPlayer_Text, ThreePlayer_Text, FourPlayer_Text;
-    private GameObject[] CheckPoints;
+    private GameObject[] CheckPoints;*/
 
     // Start is called before the first frame update
     void Start()
     {
+        /*
         OnePlayer_Obj = GameObject.Find("1Player");
         OnePlayer_Button = OnePlayer_Obj.GetComponent<Button>();
         OnePlayer_Text = OnePlayer_Obj.GetComponentInChildren<TMP_Text>();
@@ -31,13 +32,13 @@ public class playerChoiceHandler : MonoBehaviour
         ThreePlayer_Text.text = "Three Player";
 
 
-        OnePlayer_Button.onClick.AddListener(() => SceneManagerScript.OnSelectMoveToGameScene(1));
+        OnePlayer_Button.onClick.AddListener(() => MainMenuScript.OnButtonClickSetPlayerCount((1));
         TwoPlayer_Button.onClick.AddListener(() => SceneManagerScript.OnSelectMoveToGameScene(2));
         ThreePlayer_Button.onClick.AddListener(() => SceneManagerScript.OnSelectMoveToGameScene(3));
 
         OnePlayer_Text.color = Color.white;
         TwoPlayer_Text.color = Color.white;
-        ThreePlayer_Text.color = Color.white;
+        ThreePlayer_Text.color = Color.white;*/
 
     }
 }
