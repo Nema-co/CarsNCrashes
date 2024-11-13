@@ -8,7 +8,7 @@ public class MainMenuScript : MonoBehaviour
     //Objects found in the scene package! 
     private GameObject sBObject, SplitScreenObj, MultiPlayerObj, OptionsObj, QuitGameObj, playerChoicePopUp;
     private GameObject Map1, Map2;
-    private Button sPB, SplitScreenButton, MultiPlayerButton, OptionsButton, QuitGameButton, Map1Button;
+    private Button sPB, SplitScreenButton, MultiPlayerButton, OptionsButton, QuitGameButton, Map1Button, Map2Button;
     public TMP_Text singlePlayerButtonText, SplitScreenPlayerButtonText, MultiPlayerButtonText, OptionButtonText, QuitGameButtonText;
 
 
@@ -77,9 +77,14 @@ public class MainMenuScript : MonoBehaviour
         Map1Button = Map1.GetComponent<Button>();
         Map1.SetActive(false);
 
+        Map2 = GameObject.Find("Map2");
+        Map2Button = Map2.GetComponent<Button>();
+        Map2.SetActive(false);
+
 
         //Button click elements
-        Map1Button.onClick.AddListener(() => onMapButtonClick("Map1Scene")); 
+        Map1Button.onClick.AddListener(() => SceneManagerScript.OnSelectMoveToGameScene("Map1"));
+        Map2Button.onClick.AddListener(() => SceneManagerScript.OnSelectMoveToGameScene("Map2"));
         sPB.onClick.AddListener(() => OnButtonClickSetPlayerCount(1));
         SplitScreenButton.onClick.AddListener(onSplitScreenButtonClick);
         MultiPlayerButton.onClick.AddListener(onMultiplayerButtonClick);
@@ -113,8 +118,7 @@ public class MainMenuScript : MonoBehaviour
         Application.Quit();
     }
 
-    public void OnButtonClickSetPlayerCount(int playerCount)
-    {
+    public void OnButtonClickSetPlayerCount(int playerCount) {
         sBObject.SetActive(false);
         SplitScreenObj.SetActive(false);
         MultiPlayerObj.SetActive(false);
@@ -122,26 +126,17 @@ public class MainMenuScript : MonoBehaviour
         QuitGameObj.SetActive(false);
         playerChoicePopUp.SetActive(false);
         Map1.SetActive(true);
+        Map2.SetActive(true);
 
-        if (playerCount == 0)
-        {
+        if (playerCount == 0) {
             SceneManagerScript.ErrorScene("Player count is set to zero.", GlobalVariables.ErrorPage);
-        }
-        else if (playerCount > 1)
-        {
+        } else if (playerCount > 1) {
             GlobalVariables.isSplitScreen = true;
-        }
-        else
-        {
+        } else {
             GlobalVariables.isSplitScreen = false;
         }
 
         GlobalVariables.PlayerCount = playerCount;
         GlobalVariables.isGameReady = true;
-    }
-
-    public void onMapButtonClick(string Map)
-    {
-        SceneManagerScript.OnSelectMoveToGameScene(Map);
     }
 }
