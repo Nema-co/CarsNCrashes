@@ -57,10 +57,14 @@ public class GameManagerScript : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetKey(KeyCode.Escape) && !Input.GetKey(KeyCode.X)) { //Pauses game but does not unpause until I build UI and look at whether we want it a shortkey.
-            GlobalVariables.isGamePaused = true;
-        } else if(Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.X)) { //Will change another day
-            GlobalVariables.isGamePaused = false;
+        if (Input.GetKey(KeyCode.Escape)) { //Pauses game but does not unpause until I build UI and look at whether we want it a shortkey.
+            if (GlobalVariables.isGamePaused == false)
+            {
+                GlobalVariables.isGamePaused = true;
+            } else
+            {
+                GlobalVariables.isGamePaused = false;
+            }
         }
     }
     public static void playerWinsGame()

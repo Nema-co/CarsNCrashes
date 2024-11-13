@@ -422,7 +422,7 @@ GameObject:
   m_TagString: MapButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &203812010
 RectTransform:
@@ -989,7 +989,7 @@ GameObject:
   m_TagString: MapButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &908775058
 RectTransform:
@@ -1009,7 +1009,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -528, y: 327}
-  m_SizeDelta: {x: -1595.9, y: -1001.9825}
+  m_SizeDelta: {x: -1595.9, y: -1002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &908775059
 MonoBehaviour:
