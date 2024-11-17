@@ -19,17 +19,16 @@ public class CarMovementObject : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start() {
+    public void Start() {
         rb.transform.parent = null; //Will need to remove this logic at some point but remain for now.
     }
 
     // Update is called once per frame
-    void Update() {
+    public void Update() {
         if (GlobalVariables.isGameReady == true)
         {
-            if(GlobalVariables.isGamePaused == false) { 
-                if (GlobalVariables.isSplitScreen == true)
-                {
+            //if(GlobalVariables.isGamePaused == false) { 
+                if (GlobalVariables.isSplitScreen == true) {
                     if (PlayerNum == 1) {
                         vertical = Input.GetAxis("Vertical1");
                         turnInput = Input.GetAxis("Horizontal1");
@@ -39,10 +38,10 @@ public class CarMovementObject : MonoBehaviour
                         } else {
                                 throw new System.Exception("No player number set, so no API inputs setup.");
                         }
-            } else if (PlayerNum == 1) {
-                vertical = Input.GetAxis("Vertical");
-                turnInput = Input.GetAxis("Horizontal");
-            }
+                } else if (PlayerNum == 1) {
+                            vertical = Input.GetAxis("Vertical");
+                            turnInput = Input.GetAxis("Horizontal");
+                }
 
             speedInput = 0f;
             if (vertical > 0) {
@@ -62,7 +61,7 @@ public class CarMovementObject : MonoBehaviour
             leftWheel.localRotation = Quaternion.Euler(leftWheel.localRotation.eulerAngles.y, (turnInput * MaxTurn) - 180, leftWheel.localRotation.eulerAngles.z);
             rightWheel.localRotation = Quaternion.Euler(rightWheel.localRotation.eulerAngles.y, turnInput * MaxTurn, rightWheel.localRotation.eulerAngles.z);
             transform.position = rb.transform.position;
-            }
+            //}
         } else
         {
             SceneManagerScript.ExitBackToMainPage();

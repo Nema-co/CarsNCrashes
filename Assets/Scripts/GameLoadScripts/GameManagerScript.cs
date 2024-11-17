@@ -14,7 +14,7 @@ public class GameManagerScript : MonoBehaviour
     public static int PlayerCount;
 
 
-    void Awake()
+    public void Awake()
     {
         playerObj = GameObject.FindGameObjectsWithTag("Player");
         for(int i = 0; i < playerObj.Length; i++) {
@@ -27,10 +27,9 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
-    void Start() {
+    public void Start() {
         Vehicle1 = GameObject.Find("Vehicle1");
         Vehicle2 = GameObject.Find("Vehicle2");
-        Debug.Log(GlobalVariables.isSplitScreen);
 
         CheckPoints = GameObject.FindGameObjectsWithTag("CheckPoint");
         for (int i = 1; i <= CheckPoints.Length; i++) {
@@ -56,17 +55,7 @@ public class GameManagerScript : MonoBehaviour
           }
     }
 
-    private void Update() {
-        if (Input.GetKey(KeyCode.Escape)) { //Pauses game but does not unpause until I build UI and look at whether we want it a shortkey.
-            if (GlobalVariables.isGamePaused == false)
-            {
-                GlobalVariables.isGamePaused = true;
-            } else
-            {
-                GlobalVariables.isGamePaused = false;
-            }
-        }
-    }
+
     public static void playerWinsGame()
     {
         Debug.Log("Game finished!!!!");
