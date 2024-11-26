@@ -18,7 +18,8 @@ public class GameCheckPoints : MonoBehaviour
             if(carProgress != null) {
                 carProgress.PlayerProgress();
                 carProgress.checkPointStatus(1);
-                if (FinalCheckPoint == 1) {
+                if (FinalCheckPoint == 1) { //NEED TO ADD A LOGIC HERE I RECON TO GRAB HOW MANY CHECKPOINTS EXIST TO PREVENT PEOPLE SKIPPING CHECK POINTS. I think there's a 
+                    //global variable for checkpoint count in game manager object script (need to  check)
                  latestAvailableGamePosition++;
 
                     if (latestAvailableGamePosition == 1) {
