@@ -16,11 +16,8 @@ public class PauseMenuScript : MonoBehaviour
     }
 
     public void Start() {
-        
-        //PauseMenu.SetActive(false);
         ResumeButtonObj = GameObject.Find("ResumeButton");
         Resume = ResumeButtonObj.GetComponent<Button>();
-        
 
         if (Resume != null) {
             Resume.onClick.AddListener(resumeGame);
@@ -29,8 +26,8 @@ public class PauseMenuScript : MonoBehaviour
             Debug.Log("Resume button is null");
         }
         //OptionsButtonObj = GameObject.Find("OptionsButton");
-        // Options = OptionsButtonObj.GetComponent<Button>();
-        //Options.onClick.AddListener();
+        //Options = OptionsButtonObj.GetComponent<Button>();
+       // Options.onClick.AddListener();
 
         QuitButtonObj = GameObject.Find("QuitButton");
         Quit = QuitButtonObj.GetComponent<Button>();
@@ -39,10 +36,8 @@ public class PauseMenuScript : MonoBehaviour
     }
 
     public void Update() {
-
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            //Pauses game but does not unpause until I build UI and look at whether we want it as a shortkey.
-            //Need to add a multiplayer variable here at some point to combat pausing all movement if you play multiplayer.
+            //Pauses game and unpauses.
             if (isGamePaused == false) {
                 pauseGame();
             } else {  
