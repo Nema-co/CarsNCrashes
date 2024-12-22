@@ -1,3 +1,4 @@
+using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +11,7 @@ public class GameManagerScript : MonoBehaviour
 
     //Original variables
     private GameObject Vehicle1, Vehicle2;
-    private GameObject[] CheckPoints;
+    public GameObject[] CheckPoints;
     public static int PlayerCount;
 
 
@@ -31,14 +32,8 @@ public class GameManagerScript : MonoBehaviour
         Vehicle1 = GameObject.Find("Vehicle1");
         Vehicle2 = GameObject.Find("Vehicle2");
 
-        CheckPoints = GameObject.FindGameObjectsWithTag("CheckPoint");
-        for (int i = 1; i <= CheckPoints.Length; i++) {
-               GlobalVariables.MaxCheckPointCount = i;
-        }
-        Debug.Log("How many check points exist: " + GlobalVariables.MaxCheckPointCount);
-
         PlayerCount = GlobalVariables.PlayerCount;
-        if (PlayerCount == 0) {
+        if (PlayerCount == 0){
             Debug.LogError("MaxPlayer count is zero. Will first send you back to main menu. (Will most likely only be in test phase)");
             SceneManager.LoadScene("MainMenu");
         } else {
@@ -47,19 +42,37 @@ public class GameManagerScript : MonoBehaviour
                 /* We'll look to build a logic to cycle through all game objects named vechicle and when a user selects one it grabs that one and adds a default location
                  * but not now */
                 Vehicle2.SetActive(false); //Test for now 
-            }
-            else {
+            } else {
                 Vehicle1.SetActive(true);
                 Vehicle2.SetActive(true);
             }
-          }
+        }
+
+        CheckPoints = GameObject.FindGameObjectsWithTag("CheckPoint");
+        GlobalVariables.MaxCheckPointCount = CheckPoints.Length;
+        for (int i = 0; i < GlobalVariables.MaxCheckPointCount; i++) {
+            GameCheckPoints CurrentObj = CheckPoints[i].GetComponent<GameCheckPoints>();
+            if (CurrentObj != null) {
+                if (CurrentObj.CheckPointNumber > GlobalVariables.MaxCheckPointCount || CurrentObj.CheckPointNumber == 0) {
+                    GlobalVariables.ErrorMessage = " A checkpoint has a number of: " + CurrentObj.CheckPointNumber + " which is either not set or higher than the amount of check points that exist. Check point count; " + GlobalVariables.MaxCheckPointCount;
+                    SceneManagerScript.ErrorScene(GlobalVariables.ErrorMessage, GlobalVariables.ErrorPage); 
+                }
+            } else {
+                GlobalVariables.ErrorMessage = "GameCheckPoints script is missing from CheckPoint script or object has wrong object tag.";
+                SceneManagerScript.ErrorScene(GlobalVariables.ErrorMessage, GlobalVariables.ErrorPage);
+            }
+        }
+        
+        Debug.Log("How many check points exist: " + GlobalVariables.MaxCheckPointCount);
     }
 
 
     public static void playerWinsGame()
     {
         Debug.Log("Game finished!!!!");
-        UnityEditor.EditorApplication.isPlaying = false;
+        SceneManagerScript.ExitBackToMainPage();
+        Debug.Log("Game finished!!!!");
+        //UnityEditor.EditorApplication.isPlaying = false; 
 
     }
 

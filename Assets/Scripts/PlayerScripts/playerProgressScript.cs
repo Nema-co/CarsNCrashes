@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class playerProgressScript : MonoBehaviour
 {
-    private int playerCheckPointCount = 0;
+    public static int playerCheckPoint = 0;
     private int FinPosition;
     public static int CheckPointNumber;
 
 
-    public void PlayerProgress()
-    {
-        playerCheckPointCount++;
+    public void updatePlayerCheckpoint() {
+        playerCheckPoint++;
+        Debug.LogError("Player checkpoint: " + playerCheckPoint); 
     }
 
     public void finishedPosition(int positionNum)
@@ -19,14 +19,14 @@ public class playerProgressScript : MonoBehaviour
         FinPosition = positionNum;
     }
 
-    public void checkPointStatus(int Status)
+   /* public void checkPointStatus(int Status)
     {
-        CheckPointNumber = CheckPointNumber + 1;
+        CheckPointNumber += 1;
         Debug.Log("Check point number: " + CheckPointNumber);
-    }
+    }*/
 
     public int checkPointStatusCheck()
     {
-        return CheckPointNumber;
+        return playerCheckPoint;
     }
 }

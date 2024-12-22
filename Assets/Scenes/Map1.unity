@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271bfa0e58f773d4c9b6d150bf3ab142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CheckPointNumber: 8
+  CheckPointNumber: 2
   FinalCheckPoint: 1
 --- !u!65 &725038791
 BoxCollider:
@@ -2702,7 +2702,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1
-  m_Center: {x: 0, y: 1.1, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &903049091
 Transform:
   m_ObjectHideFlags: 0
@@ -4209,6 +4209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f766a4b308889274899daa80b35004fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CheckPoints: []
 --- !u!4 &1211842622
 Transform:
   m_ObjectHideFlags: 0
