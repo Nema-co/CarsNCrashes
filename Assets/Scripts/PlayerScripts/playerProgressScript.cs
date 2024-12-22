@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playerProgressScript : MonoBehaviour
 {
-    public static int playerCheckPoint = 0;
+    public int playerCheckPoint = 0; //Don't set this as static it'll create a bug with checkpoints.
     private int FinPosition;
     public static int CheckPointNumber;
 
