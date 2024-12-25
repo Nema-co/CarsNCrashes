@@ -9,7 +9,7 @@ public class MainMenuScript : MonoBehaviour
     private GameObject sBObject, SplitScreenObj, MultiPlayerObj, OptionsObj, QuitGameObj, playerChoicePopUp;
     private GameObject Map1, Map2;
     private Button sPB, SplitScreenButton, MultiPlayerButton, OptionsButton, QuitGameButton, Map1Button, Map2Button;
-    public TMP_Text singlePlayerButtonText, SplitScreenPlayerButtonText, MultiPlayerButtonText, OptionButtonText, QuitGameButtonText;
+    private TMP_Text singlePlayerButtonText, SplitScreenPlayerButtonText, MultiPlayerButtonText, OptionButtonText, QuitGameButtonText;
 
 
     //Split Screen PopUp variables
@@ -115,7 +115,11 @@ public class MainMenuScript : MonoBehaviour
     public void onQuitButtonClick()
     {
         QuitGameButton.interactable = false;
-        Application.Quit();
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 
     public void OnButtonClickSetPlayerCount(int playerCount) {
