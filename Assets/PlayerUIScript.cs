@@ -15,7 +15,7 @@ public class PlayerUIScript : MonoBehaviour
     public void Start()
     {
         player = GetComponent<playerProgressScript>();
-        PlayerCam = GetComponent<Camera>();
+        PlayerCam = GetComponent<Camera>(); //TODO: Camera isn't bing picked up correctly.
         PlayerCanvas = PlayerCam.GetComponent<Canvas>();
         PlayerPositionNo = PlayerCanvas.GetComponent<TMP_Text>();
         
