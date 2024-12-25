@@ -9,13 +9,11 @@ public class GameCheckPoints : MonoBehaviour
     public int CheckPointNumber = 0; //Set in unity front end per object! Don't change unless you got a better way
     public int FinalCheckPoint; //Set in unity front end per object! Don't change unless you got a better way
     private float percentage = 0.1f;
-    private int latestAvailableGamePosition = 0;
+    private int CurrentPosition = 0;
 
     public void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) { // Ensure the player has the "Player" tag 
-            //TODO issue is here it's not selecting the specific player script I don't think!!
             playerProgressScript carProgress = other.GetComponent<playerProgressScript>();
-            //TODO ISSUES HERE IT'S PICKING UP BOTH SCRIPS NOT JUST THE INDIVIDUAL ONE for that object! Need to fix,.s
             if(carProgress != null) {
                 int NextCheckPoint = carProgress.checkPointStatusCheck() +1;
                 if (CheckPointNumber != 0 && CheckPointNumber == NextCheckPoint) { 
@@ -24,18 +22,18 @@ public class GameCheckPoints : MonoBehaviour
                     NextCheckPoint += 1;
                     
                     //carProgress.checkPointStatus(1);
-                    if (FinalCheckPoint == 1) { 
-                        latestAvailableGamePosition++;
-                        if (latestAvailableGamePosition == 1) {
+                    if (FinalCheckPoint == 1) {
+                        CurrentPosition++;
+                        if (CurrentPosition == 1) {
                             carProgress.finishedPosition(1);
-                        } else if (latestAvailableGamePosition == 2){
+                        } else if (CurrentPosition == 2){
                             carProgress.finishedPosition(2);
-                        } else if (latestAvailableGamePosition == 3) {
+                        } else if (CurrentPosition == 3) {
                             carProgress.finishedPosition(3);
                         } else {
-                            carProgress.finishedPosition(latestAvailableGamePosition);
+                            carProgress.finishedPosition(CurrentPosition);
                         }
-                        if (CheckPoint >= GlobalVariables.MaxCheckPointCount && latestAvailableGamePosition > GlobalVariables.MaxPlayerCount * percentage) {
+                        if (CheckPoint >= GlobalVariables.MaxCheckPointCount && CurrentPosition > GlobalVariables.MaxPlayerCount * percentage) {
                             //Here is what shall run when this reaches the end. I will set a timer on gamer manager at some point.
                             GameManagerScript.playerWinsGame();
                         }
