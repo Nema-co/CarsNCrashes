@@ -7,7 +7,7 @@ public class playerProgressScript : MonoBehaviour
     public int playerCheckPoint = 0; //Don't set this as static it'll create a bug with checkpoints.
     private int FinPosition;
     public int CheckPointNumber;
-    private int PlayerPosNum = 1;
+    public int PlayerPosNum = 1;
     
 
 
@@ -48,6 +48,10 @@ public class playerProgressScript : MonoBehaviour
     }
 
     public int playerPosition() {
-        return PlayerPosNum;
+        if (PlayerPosNum == 0) { //TODO: Need to check each players position based on starting point.
+            throw new System.Exception("Player position appears 0, should be 1 by default.");
+        }
+       return PlayerPosNum;
+
     }
 }

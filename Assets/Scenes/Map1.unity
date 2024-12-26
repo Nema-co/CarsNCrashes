@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 7654116}
   - component: {fileID: 7654115}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: PositionCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -458,7 +458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &205916751
 Transform:
   m_ObjectHideFlags: 0
@@ -3006,6 +3006,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCheckPoint: 0
+  CheckPointNumber: 0
+  PlayerPosNum: 1
 --- !u!1 &917134157
 GameObject:
   m_ObjectHideFlags: 0
@@ -5695,6 +5697,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCheckPoint: 0
+  CheckPointNumber: 0
+  PlayerPosNum: 1
 --- !u!1 &1663741871
 GameObject:
   m_ObjectHideFlags: 0

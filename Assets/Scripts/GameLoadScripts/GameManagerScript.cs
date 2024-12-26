@@ -1,4 +1,5 @@
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,11 +20,11 @@ public class GameManagerScript : MonoBehaviour
     {
         playerObj = GameObject.FindGameObjectsWithTag("Player");
         for(int i = 0; i < playerObj.Length; i++) {
-            playerCollider = playerObj[i].GetComponent<Collider>();
-            playerProgressScript ScriptAttached = playerCollider.GetComponent<playerProgressScript>();
-            if ((ScriptAttached == null)) {
-                GlobalVariables.ErrorMessage = "Player progress script not attached to a player collider object.";
-                SceneManagerScript.ErrorScene(GlobalVariables.ErrorMessage, GlobalVariables.ErrorPage);
+            playerProgressScript PlayerProgressScript = playerObj[i].GetComponent<playerProgressScript>();
+            //playerProgressScript ScriptAttached = playerCollider.GetComponent<playerProgressScript>();
+            if ((PlayerProgressScript == null)) {
+                Debug.LogError("Player progress script not attached to parent object: " + playerObj[i].name);
+
             }
         }
     }
@@ -71,7 +72,6 @@ public class GameManagerScript : MonoBehaviour
     {
         Debug.Log("Game finished!!!!");
         SceneManagerScript.ExitBackToMainPage();
-        Debug.Log("Game finished!!!!");
         //UnityEditor.EditorApplication.isPlaying = false; 
 
     }

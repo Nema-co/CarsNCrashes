@@ -12,8 +12,10 @@ public class GameCheckPoints : MonoBehaviour
     private int CurrentPosition = 0;
 
     public void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Player")) { // Ensure the player has the "Player" tag 
-            playerProgressScript carProgress = other.GetComponent<playerProgressScript>();
+
+        //TODO: Needs rewrite had to move player Progress script to overall parent object now it doesn't work. Issue appears on PlayerUIScript but now introduced here
+        if (other.CompareTag("Player")) { // Ensure the player has the "Player" tag
+            playerProgressScript carProgress = other.GetComponentInParent<playerProgressScript>();
             if(carProgress != null) {
                 int NextCheckPoint = carProgress.checkPointStatusCheck() +1;
                 if (CheckPointNumber != 0 && CheckPointNumber == NextCheckPoint) { 

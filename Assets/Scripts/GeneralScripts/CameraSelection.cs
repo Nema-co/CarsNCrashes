@@ -10,7 +10,7 @@ public class CameraSelection : MonoBehaviour
     private Camera playerCam, mainCam;
     private GameObject mainCameraObj;
     void Awake()
-    {
+    { //TODO: Need to rewrite this camera selection to use one camera but set the camera values.
         GameObject[] playerCameras = GameObject.FindGameObjectsWithTag("PlayerCamera");
         GameObject[] mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
         
@@ -18,7 +18,7 @@ public class CameraSelection : MonoBehaviour
         {
             int MainCameraEnabled = mainCamera.Length;
 
-            if (MainCameraEnabled >= 1)
+            if (MainCameraEnabled >= 1) 
             {
                 for (int i = 0; i < playerCameras.Length; i++)
                 {
@@ -26,17 +26,10 @@ public class CameraSelection : MonoBehaviour
                     playerCam.enabled = false;
                 }
             } 
-        } else
-        {
+        } else {
             mainCameraObj = GameObject.Find("MainCamera");
             mainCam = mainCameraObj.GetComponent<Camera>();
             mainCam.enabled = false;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
