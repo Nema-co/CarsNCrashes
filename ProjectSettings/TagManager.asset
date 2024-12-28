@@ -12,6 +12,7 @@ TagManager:
   - CheckPoint
   - Button
   - MapButton
+  - PlayerCollider
   layers:
   - Default
   - TransparentFX

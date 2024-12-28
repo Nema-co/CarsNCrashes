@@ -35,12 +35,14 @@ public class playerProgressScript : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if(other.CompareTag("Player")) {
+        if(other.CompareTag("Position")) {
            playerProgressScript otherPlayer = other.GetComponent<playerProgressScript>();
-           otherPlayer.increasePlayerPos();
+           otherPlayer.decreasePlayerPos();
         }
-        decreasePlayerPos();
+        increasePlayerPos();
+        Debug.Log("Player position: " + playerPosition());
         //TODO: Need to update the UI script for both vehicles but will work on another day.
+        //Doesn't consider ignoring it's own asset.
     }
 
     public int checkPointStatusCheck() {

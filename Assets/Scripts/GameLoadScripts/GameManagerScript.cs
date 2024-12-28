@@ -18,10 +18,9 @@ public class GameManagerScript : MonoBehaviour
 
     public void Awake()
     {
-        playerObj = GameObject.FindGameObjectsWithTag("Player");
+        playerObj = GameObject.FindGameObjectsWithTag("PlayerCollider");
         for(int i = 0; i < playerObj.Length; i++) {
             playerProgressScript PlayerProgressScript = playerObj[i].GetComponent<playerProgressScript>();
-            //playerProgressScript ScriptAttached = playerCollider.GetComponent<playerProgressScript>();
             if ((PlayerProgressScript == null)) {
                 Debug.LogError("Player progress script not attached to parent object: " + playerObj[i].name);
 
