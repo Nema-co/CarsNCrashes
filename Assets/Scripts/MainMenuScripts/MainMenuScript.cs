@@ -94,7 +94,7 @@ public class MainMenuScript : MonoBehaviour
         //SplitScreen pop up player selection
         OnePlayer_Button.onClick.AddListener(() => OnButtonClickSetPlayerCount(1));
         TwoPlayer_Button.onClick.AddListener(() => OnButtonClickSetPlayerCount(2));
-        ThreePlayer_Button.onClick.AddListener(() => OnButtonClickSetPlayerCount(3));
+        //ThreePlayer_Button.onClick.AddListener(() => OnButtonClickSetPlayerCount(3));
     }
 
     public void onSplitScreenButtonClick()

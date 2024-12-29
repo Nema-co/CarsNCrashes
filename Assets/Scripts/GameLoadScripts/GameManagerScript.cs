@@ -30,7 +30,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void Start() {
         Vehicle1 = GameObject.Find("Vehicle1");
-        Vehicle2 = GameObject.Find("Vehicle2");
+        Vehicle2 = GameObject.Find("Vehicle2"); //TODO need to fix
 
         PlayerCount = GlobalVariables.PlayerCount;
         if (PlayerCount == 0){

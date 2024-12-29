@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity;
 using TMPro.Examples;
 using static UnityEditor.IMGUI.Controls.CapsuleBoundsHandle;
+using UnityEditor.Experimental.GraphView;
 
 public class CameraSelection : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class CameraSelection : MonoBehaviour
     private float XAxis, YAxis, WidthAxis, HeightAxis;
     void Awake() { //TODO: Need to rewrite this camera selection to use one camera but set the camera values.
         GameObject[] playerCameras = GameObject.FindGameObjectsWithTag("PlayerCamera");
-        GameObject[] mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
+        //GameObject[] mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
         playerCam = GetComponentInChildren<Camera>();
         playerCam.transform.localRotation = Quaternion.Euler(20, 0, 0);
             //new Vector3(20, 0, 0);
@@ -24,33 +25,33 @@ public class CameraSelection : MonoBehaviour
             WidthAxis = 1f;
             HeightAxis = 1f;
             Debug.Log("Field of view check 1 :" + playerCam.fieldOfView);
-            playerCam.fieldOfView = 80;
             Debug.Log("Field of view check 2 :" + playerCam.fieldOfView);
-
-           /* int MainCameraEnabled = mainCamera.Length;
-
-            if (MainCameraEnabled > 1) 
-            {
-                for (int i = 0; i < playerCameras.Length; i++)
-                {
-                    playerCam = playerCameras[i].GetComponent<Camera>();
-                    playerCam.enabled = false;
-                }
-            }*/
+            playerCam.fieldOfView = 80;
+            playerCam.rect = new Rect(XAxis, YAxis, WidthAxis, HeightAxis);
         }  else {
-            /*mainCameraObj = GameObject.Find("MainCamera");
-            mainCam = mainCameraObj.GetComponent<Camera>();
-            mainCam.enabled = false;*/
-            XAxis = 0;
-            YAxis = 0;
-            WidthAxis = 1f;
-            HeightAxis = 0.5f;
-            Debug.Log("Field of view check 1 :" + playerCam.fieldOfView);
-            playerCam.fieldOfView = 80;
-            Debug.Log("Field of view check 2 :" + playerCam.fieldOfView);
-
+            for (int i = 0; i < playerCameras.Length; i++) {
+                if (GlobalVariables.PlayerCount <= 2) {
+                    if (i == 0) {
+                        XAxis = 0;
+                        YAxis = 0f;
+                        WidthAxis = 1f;
+                        HeightAxis = 0.5f;
+                    } else if (i == 1) {
+                        XAxis = 0;
+                        YAxis = 0.5f;
+                        WidthAxis = 1f;
+                        HeightAxis = 0.5f;
+                    }
+                } else {
+                    //Needs to be for when there is four players
+                }
+                playerCam = playerCameras[i].GetComponent<Camera>();
+                playerCam.fieldOfView = 80;
+                playerCam.rect = new Rect(XAxis, YAxis, WidthAxis, HeightAxis);
+            }
+            
         }
-        playerCam.rect = new Rect(XAxis, YAxis, WidthAxis, HeightAxis);
+        
     }
 
 }

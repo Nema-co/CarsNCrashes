@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -327,7 +326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.5554199, y: 26.781311}
+  m_AnchoredPosition: {x: -1.5554199, y: 26.781372}
   m_SizeDelta: {x: -1630.7178, y: -913.0226}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &199602075
@@ -441,8 +440,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 525.90204, y: 327}
-  m_SizeDelta: {x: -1594.4042, y: -1002}
+  m_AnchoredPosition: {x: 519.4268, y: 322.61438}
+  m_SizeDelta: {x: -1607.3546, y: -922.4753}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &203812011
 MonoBehaviour:
@@ -1008,8 +1007,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -528, y: 327}
-  m_SizeDelta: {x: -1595.9, y: -1002}
+  m_AnchoredPosition: {x: -528, y: 317.9878}
+  m_SizeDelta: {x: -1595.9, y: -917.0128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &908775059
 MonoBehaviour:
@@ -2575,8 +2574,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 480, y: -293.67}
-  m_SizeDelta: {x: 960, y: 587.35}
+  m_AnchoredPosition: {x: 480, y: -270}
+  m_SizeDelta: {x: 960, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1572776475
 MonoBehaviour:
@@ -2628,11 +2627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be8e0a92adf7f841b8f273d8c19ad1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singlePlayerButtonText: {fileID: 0}
-  SplitScreenPlayerButtonText: {fileID: 0}
-  MultiPlayerButtonText: {fileID: 0}
-  OptionButtonText: {fileID: 0}
-  QuitGameButtonText: {fileID: 0}
 --- !u!1 &1629514004
 GameObject:
   m_ObjectHideFlags: 0
@@ -3204,7 +3198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -786.51025, y: -414}
+  m_AnchoredPosition: {x: -786.51025, y: -414.00006}
   m_SizeDelta: {x: -1656.7206, y: -897.638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2036644534
