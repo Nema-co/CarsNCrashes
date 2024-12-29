@@ -1,32 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class playerProgressScript : MonoBehaviour
 {
-    private int playerCheckPointCount = 0;
+    public int playerCheckPoint = 0; //Don't set this as static it'll create a bug with checkpoints.
     private int FinPosition;
-    public static int CheckPointNumber;
+    public int CheckPointNumber;
+    public int PlayerPosNum = 1;
 
 
-    public void PlayerProgress()
-    {
-        playerCheckPointCount++;
+    public void updatePlayerCheckpoint() {
+        playerCheckPoint++;
     }
 
-    public void finishedPosition(int positionNum)
-    {
+    public void finishedPosition(int positionNum){
         FinPosition = positionNum;
     }
 
-    public void checkPointStatus(int Status)
+   /* public void checkPointStatus(int Status)
     {
-        CheckPointNumber = CheckPointNumber + 1;
+        CheckPointNumber += 1;
         Debug.Log("Check point number: " + CheckPointNumber);
+    }*/
+
+    public void increasePlayerPos() {
+        PlayerPosNum++;
+        Debug.Log("PlayerPosNum ++ check" + PlayerPosNum);
     }
 
-    public int checkPointStatusCheck()
-    {
-        return CheckPointNumber;
+    public void decreasePlayerPos() {
+        PlayerPosNum--;
+        Debug.Log("PlayerPosNum -- check" + PlayerPosNum);
+    }
+
+    public void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Position") && other.gameObject != this.gameObject) {
+            playerProgressScript otherPlayer = other.GetComponent<playerProgressScript>();
+            otherPlayer.decreasePlayerPos();
+        } else if (!other.CompareTag("CheckPoint") && other.gameObject == this.gameObject) {
+            increasePlayerPos();
+            Debug.Log("Player position: " + playerPosition());
+            //TODO: Need to update the UI script for both vehicles but will work on another day.
+            //Doesn't cosider it's own collider and is a static placement so don't think it works.
+        }
+        Debug.Log("Check????1");
+    }
+
+    public int checkPointStatusCheck() {
+        return playerCheckPoint;
+    }
+
+    public int playerPosition() {
+        if (PlayerPosNum == 0) { //TODO: Need to check each players position based on starting point.
+            throw new System.Exception("Player position appears 0, should be 1 by default.");
+        }
+       return PlayerPosNum;
+
     }
 }

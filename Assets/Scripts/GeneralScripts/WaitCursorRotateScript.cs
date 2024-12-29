@@ -8,7 +8,7 @@ public class WaitCursorRotateScript : MonoBehaviour
 {
     // Start is called before the first frame update
     private bool isRunning;
-    private float HitCount = 5f, CurrentCount = 0, CountSpinSpeed = 300f;
+    private float HitCount = 5f, CountSpinSpeed = 300f;
  
     void Start()
     {

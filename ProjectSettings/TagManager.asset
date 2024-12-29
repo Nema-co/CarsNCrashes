@@ -12,6 +12,8 @@ TagManager:
   - CheckPoint
   - Button
   - MapButton
+  - PlayerCollider
+  - Position
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Hidden
   - 
   - 
   - 

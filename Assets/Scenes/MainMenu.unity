@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -327,8 +326,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.6405029, y: -61.491974}
-  m_SizeDelta: {x: -800.6761, y: -325.3947}
+  m_AnchoredPosition: {x: -1.5554199, y: 26.781372}
+  m_SizeDelta: {x: -1630.7178, y: -913.0226}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &199602075
 MonoBehaviour:
@@ -422,7 +421,7 @@ GameObject:
   m_TagString: MapButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &203812010
 RectTransform:
@@ -441,8 +440,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 314.70584, y: 159}
-  m_SizeDelta: {x: -782.0913, y: -512.3}
+  m_AnchoredPosition: {x: 519.4268, y: 322.61438}
+  m_SizeDelta: {x: -1607.3546, y: -922.4753}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &203812011
 MonoBehaviour:
@@ -989,7 +988,7 @@ GameObject:
   m_TagString: MapButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &908775058
 RectTransform:
@@ -1008,8 +1007,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -315.42047, y: 158.99998}
-  m_SizeDelta: {x: -784.6797, y: -512.3019}
+  m_AnchoredPosition: {x: -528, y: 317.9878}
+  m_SizeDelta: {x: -1595.9, y: -917.0128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &908775059
 MonoBehaviour:
@@ -2575,8 +2574,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 275, y: -168.25}
-  m_SizeDelta: {x: 550, y: 336.5}
+  m_AnchoredPosition: {x: 480, y: -270}
+  m_SizeDelta: {x: 960, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1572776475
 MonoBehaviour:
@@ -2628,11 +2627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be8e0a92adf7f841b8f273d8c19ad1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singlePlayerButtonText: {fileID: 0}
-  SplitScreenPlayerButtonText: {fileID: 0}
-  MultiPlayerButtonText: {fileID: 0}
-  OptionButtonText: {fileID: 0}
-  QuitGameButtonText: {fileID: 0}
 --- !u!1 &1629514004
 GameObject:
   m_ObjectHideFlags: 0
@@ -3130,10 +3124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3204,8 +3198,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -436, y: -205.99304}
-  m_SizeDelta: {x: -907.2343, y: -447.4832}
+  m_AnchoredPosition: {x: -786.51025, y: -414.00006}
+  m_SizeDelta: {x: -1656.7206, y: -897.638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2036644534
 MonoBehaviour:
