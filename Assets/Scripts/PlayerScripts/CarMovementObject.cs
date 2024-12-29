@@ -25,52 +25,40 @@ public class CarMovementObject : MonoBehaviour
 
     // Update is called once per frame
     public void Update() {
-        if (GlobalVariables.isGameReady == true)
-        {
-            //if(GlobalVariables.isGamePaused == false) { 
-                if (GlobalVariables.isSplitScreen == true) {
-                    if (PlayerNum == 1) {
-                        vertical = Input.GetAxis("Vertical1");
-                        turnInput = Input.GetAxis("Horizontal1");
-                    } else if (PlayerNum == 2) {
-                            vertical = Input.GetAxis("Vertical2");
-                            turnInput = Input.GetAxis("Horizontal2");
-                        } else {
-                                throw new System.Exception("No player number set, so no API inputs setup.");
-                        }
-                } else if (PlayerNum == 1) {
-                            vertical = Input.GetAxis("Vertical");
-                            turnInput = Input.GetAxis("Horizontal");
-                }
+        if (GlobalVariables.isSplitScreen == true) {
+            if (PlayerNum == 1) {
+                vertical = Input.GetAxis("Vertical1");
+                turnInput = Input.GetAxis("Horizontal1");
+            } else if (PlayerNum == 2) {
+                vertical = Input.GetAxis("Vertical2");
+                turnInput = Input.GetAxis("Horizontal2");
+            } else {
+                throw new System.Exception("No player number set, so no API inputs setup.");
+            }
+        } else if (PlayerNum == 1) {
+            vertical = Input.GetAxis("Vertical");
+            turnInput = Input.GetAxis("Horizontal");
+        }
 
-            speedInput = 0f;
-            if (vertical > 0) {
+        speedInput = 0f;
+        if (vertical > 0) {
                 speedInput = vertical * forward * 100f;
 
-            }
-            if (vertical < 0) {
+        } else if (vertical < 0) {
                 speedInput = vertical * backward * 75f;
-            }
+           }
 
-            if (grounded) //Only works if ground has the layer marked (grounded) as it uses a public variable
-            {
+        if (grounded) { //Only works if vehichle is grounded by layer being set
                 transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * vertical, 0f));
 
-            }
-
-            leftWheel.localRotation = Quaternion.Euler(leftWheel.localRotation.eulerAngles.y, (turnInput * MaxTurn) - 180, leftWheel.localRotation.eulerAngles.z);
-            rightWheel.localRotation = Quaternion.Euler(rightWheel.localRotation.eulerAngles.y, turnInput * MaxTurn, rightWheel.localRotation.eulerAngles.z);
-            transform.position = rb.transform.position;
-            //}
-        } else
-        {
-            SceneManagerScript.ExitBackToMainPage();
-            Debug.Log("Game not ready will be taken back to main menu.");
         }
+
+        leftWheel.localRotation = Quaternion.Euler(leftWheel.localRotation.eulerAngles.y, (turnInput * MaxTurn) - 180, leftWheel.localRotation.eulerAngles.z);
+        rightWheel.localRotation = Quaternion.Euler(rightWheel.localRotation.eulerAngles.y, turnInput * MaxTurn, rightWheel.localRotation.eulerAngles.z);
+        transform.position = rb.transform.position;
     }
 
-    public void FixedUpdate()
-    {
+    public void FixedUpdate(){
 
         grounded = false;
         RaycastHit hit;

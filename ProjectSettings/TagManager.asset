@@ -13,6 +13,7 @@ TagManager:
   - Button
   - MapButton
   - PlayerCollider
+  - Position
   layers:
   - Default
   - TransparentFX
