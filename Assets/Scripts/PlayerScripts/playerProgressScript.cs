@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class playerProgressScript : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class playerProgressScript : MonoBehaviour
     private int FinPosition;
     private int CheckPointNumber;
     private int PlayerPosNum = 1;
+    private int[] GamePositions = { 1, 2, 3, 4, 5, 6, 7, 8 };
+    private float DistanceCheck = 8f;
 
 
     public void updatePlayerCheckpoint() {
@@ -35,25 +38,33 @@ public class playerProgressScript : MonoBehaviour
         Debug.Log("PlayerPosNum -- check" + PlayerPosNum);
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Position") && other.gameObject != this.gameObject) {
-            playerProgressScript otherPlayer = other.GetComponentInParent<playerProgressScript>(); //Don't remove collider from parent obj due to an issue
-            if (otherPlayer != null) {
-                if (otherPlayer.playerPosition() != 1) {
-                    otherPlayer.decreasePlayerPos();
-                    Debug.Log("Tag Position: " + playerPosition());
+    private void Update() {
+        checkOvertake();
+    }
+
+    private void checkOvertake() { //Needs to try change this to not detect current car so we don't hardcode values. Need to at a quatorian.Eular for rotate of the raycast
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, DistanceCheck)) {
+            if (hit.collider.CompareTag("Position") && !hit.collider.CompareTag("CheckPoint")) {
+                playerProgressScript otherCar = hit.collider.GetComponentInParent<playerProgressScript>();
+                if (otherCar != null && otherCar.playerPosition() > playerPosition()) {
+                    // Overtake: Update both cars' positions
+                    //(otherCar);
+                    otherCar.decreasePlayerPos(); //Decrese from 2 > 1 etc
+                    Debug.Log("Got here?!");
                 } else {
-                    Debug.Log("Player position is 1"); //Failing here. If statements need changing //TODO: 
+                    Debug.Log("otherCar script is null");
+                    increasePlayerPos();
                 }
             } else {
-                Debug.LogError("otherPlayer script is null");
+                Debug.Log("No tag Position or a checkpoint has been hit.");
+
             }
-        } else if (!other.CompareTag("CheckPoint") && other.gameObject == this.gameObject) {
-            increasePlayerPos();
-            Debug.Log("Everything else " + playerPosition());
-            //TODO: Need to update the UI script for both vehicles but will work on another day.
-            //Doesn't cosider it's own collider and is a static placement so don't think it works.
-        }
+        } 
+       Vector3 test = transform.forward * DistanceCheck;
+       Debug.DrawRay(transform.position + Vector3.up * 0.8f, transform.forward * DistanceCheck, Color.red); //Used for debugging TEST
+       //Debug.DrawLine(transform.position, transform.position + test, Color.red);
+
     }
 
     public int checkPointStatusCheck() {
