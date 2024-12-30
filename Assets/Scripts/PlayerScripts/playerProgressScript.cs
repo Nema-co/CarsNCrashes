@@ -7,8 +7,8 @@ public class playerProgressScript : MonoBehaviour
 {
     public int playerCheckPoint = 0; //Don't set this as static it'll create a bug with checkpoints.
     private int FinPosition;
-    public int CheckPointNumber;
-    public int PlayerPosNum = 1;
+    private int CheckPointNumber;
+    private int PlayerPosNum = 1;
 
 
     public void updatePlayerCheckpoint() {
@@ -35,17 +35,25 @@ public class playerProgressScript : MonoBehaviour
         Debug.Log("PlayerPosNum -- check" + PlayerPosNum);
     }
 
-    public void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Position") && other.gameObject != this.gameObject) {
-            playerProgressScript otherPlayer = other.GetComponent<playerProgressScript>();
-            otherPlayer.decreasePlayerPos();
+            playerProgressScript otherPlayer = other.GetComponentInParent<playerProgressScript>(); //Don't remove collider from parent obj due to an issue
+            if (otherPlayer != null) {
+                if (otherPlayer.playerPosition() != 1) {
+                    otherPlayer.decreasePlayerPos();
+                    Debug.Log("Tag Position: " + playerPosition());
+                } else {
+                    Debug.Log("Player position is 1"); //Failing here. If statements need changing //TODO: 
+                }
+            } else {
+                Debug.LogError("otherPlayer script is null");
+            }
         } else if (!other.CompareTag("CheckPoint") && other.gameObject == this.gameObject) {
             increasePlayerPos();
-            Debug.Log("Player position: " + playerPosition());
+            Debug.Log("Everything else " + playerPosition());
             //TODO: Need to update the UI script for both vehicles but will work on another day.
             //Doesn't cosider it's own collider and is a static placement so don't think it works.
         }
-        Debug.Log("Check????1");
     }
 
     public int checkPointStatusCheck() {

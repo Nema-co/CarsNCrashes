@@ -24,8 +24,6 @@ public class CameraSelection : MonoBehaviour
             YAxis = 0;
             WidthAxis = 1f;
             HeightAxis = 1f;
-            Debug.Log("Field of view check 1 :" + playerCam.fieldOfView);
-            Debug.Log("Field of view check 2 :" + playerCam.fieldOfView);
             playerCam.fieldOfView = 80;
             playerCam.rect = new Rect(XAxis, YAxis, WidthAxis, HeightAxis);
         }  else {
