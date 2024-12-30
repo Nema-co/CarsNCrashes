@@ -30,7 +30,7 @@ public class playerProgressScript : MonoBehaviour
 
     public void increasePlayerPos() {
         PlayerPosNum++;
-        Debug.Log("PlayerPosNum ++ check" + PlayerPosNum);
+        Debug.Log("PlayerPosNum ++ check" + PlayerPosNum.ToString());
     }
 
     public void decreasePlayerPos() {
@@ -45,16 +45,20 @@ public class playerProgressScript : MonoBehaviour
     private void checkOvertake() { //Needs to try change this to not detect current car so we don't hardcode values. Need to at a quatorian.Eular for rotate of the raycast
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, DistanceCheck)) {
-            if (hit.collider.CompareTag("Position") && !hit.collider.CompareTag("CheckPoint")) {
+            //&& !this.GetComponentInChildren<Collider>()) { //Need to stop it detecting its own position collider
+            if (hit.collider.CompareTag("Position") && !hit.collider.CompareTag("CheckPoint")) { 
                 playerProgressScript otherCar = hit.collider.GetComponentInParent<playerProgressScript>();
                 if (otherCar != null && otherCar.playerPosition() > playerPosition()) {
                     // Overtake: Update both cars' positions
                     //(otherCar);
                     otherCar.decreasePlayerPos(); //Decrese from 2 > 1 etc
+                    if (this.playerPosition() < 8) {
+                        this.increasePlayerPos();
+                    }
                     Debug.Log("Got here?!");
                 } else {
-                    Debug.Log("otherCar script is null");
-                    increasePlayerPos();
+
+                    Debug.Log("otherCar script is null or other car player position is not greater than current car");
                 }
             } else {
                 Debug.Log("No tag Position or a checkpoint has been hit.");
