@@ -56,9 +56,8 @@ public class playerProgressScript : MonoBehaviour
                         this.increasePlayerPos();
                     }
                     Debug.Log("Got here?!");
-                } else {
-
-                    Debug.Log("otherCar script is null or other car player position is not greater than current car");
+                } else { //TODO: 
+                   // Debug.Log("otherCar script is null or other car player position is not greater than current car");
                 }
             } else {
                 Debug.Log("No tag Position or a checkpoint has been hit.");

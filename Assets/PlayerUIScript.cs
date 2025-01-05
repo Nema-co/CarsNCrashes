@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 
 public class PlayerUIScript : MonoBehaviour
 {
-    Camera PlayerCam;
+    Camera PlayerCam, TestCam;
     Canvas PlayerCanvas;
     TMP_Text PlayerPositionNo;
     playerProgressScript playerScript;
@@ -14,7 +14,7 @@ public class PlayerUIScript : MonoBehaviour
 
     private int lapNoUI = 1;
     // Start is called before the first frame update
-    public void Start() {
+    /*public void Start() {
         playerColliderObj = GameObject.FindWithTag("PlayerCollider"); //TODO: Not happy with this way of grabbing object inside parent object
         if (playerColliderObj != null) {
             playerScript = playerColliderObj.GetComponentInChildren<playerProgressScript>();
@@ -29,7 +29,7 @@ public class PlayerUIScript : MonoBehaviour
                             PlayerPositionNo.fontSizeMin = 10;
                             PlayerPositionNo.fontSizeMax = 14;
                         } else {
-                            GlobalVariables.ErrorMessage = "Player UI canvas is missing.";
+                            GlobalVariables.ErrorMessage = "Player position no is missing.";
                             SceneManagerScript.ErrorScene(GlobalVariables.ErrorMessage, GlobalVariables.ErrorPage);
                         }
                     } else {
@@ -55,5 +55,5 @@ public class PlayerUIScript : MonoBehaviour
         PlayerPositionNo.text = "Position: " + playerScript.playerPosition().ToString();
         ///PlayerPositionNo.p
         //Debug.Log("Player Pos Check: " + playerScript.playerPosition().ToString());
-    }
+    }*/
 }

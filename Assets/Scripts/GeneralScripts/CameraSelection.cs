@@ -5,20 +5,27 @@ using Unity;
 using TMPro.Examples;
 using static UnityEditor.IMGUI.Controls.CapsuleBoundsHandle;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.SceneManagement;
 
 public class CameraSelection : MonoBehaviour
 {
     // Start is called before the first frame upda
-    private Camera playerCam, mainCam;
-    private GameObject mainCameraObj;
+    private Camera playerCam;
+    private GameObject playerCamObj;
 
     private float XAxis, YAxis, WidthAxis, HeightAxis;
     void Awake() { //TODO: Need to rewrite this camera selection to use one camera but set the camera values.
-        GameObject[] playerCameras = GameObject.FindGameObjectsWithTag("PlayerCamera");
         //GameObject[] mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
-        playerCam = GetComponentInChildren<Camera>();
+        playerCamObj = new GameObject("Camera");
+        playerCamObj.SetActive(true);
+        playerCamObj.transform.SetParent(this.transform);
+        playerCamObj.tag = "PlayerCamera";
+        playerCam = playerCamObj.AddComponent<Camera>();
+
+        playerCam.transform.position = new Vector3 (transform.position.x, transform.position.y + 6f, transform.position.z - 10f);
+        //playerCam = GetComponentInChildren<Camera>();
         playerCam.transform.localRotation = Quaternion.Euler(20, 0, 0);
-            //new Vector3(20, 0, 0);
+        GameObject[] playerCameras = GameObject.FindGameObjectsWithTag("PlayerCamera");
         if (GlobalVariables.isSplitScreen == false) { //Means it'll use main camera only 
             XAxis = 0;
             YAxis = 0;
